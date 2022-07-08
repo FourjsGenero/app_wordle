@@ -1,0 +1,31 @@
+LAYOUT (TEXT="Wordle")#, STRETCH=X)
+VBOX  
+    GRID grd_header
+{
+[h1:h2: :h3    : :h4:h5]
+}
+    END
+    GRID grd_gameboard
+            
+{
+[gb]
+}
+    END
+    GRID grd_keyboard
+{
+[kb]
+}
+    END
+END #VBOX
+END
+ATTRIBUTES
+
+IMAGE h1: IMAGE="fa-align-justify", ACTION=header, STYLE="header", STRETCH=NONE;
+IMAGE h2: IMAGE="fa-question-circle", ACTION=help, STYLE="header", STRETCH=NONE;
+LABEL h3: TEXT="Wordle", STYLE="header", STRETCH=X, JUSTIFY=CENTER;
+IMAGE h4: IMAGE="fa-bar-chart", ACTION=stats, STYLE="header", STRETCH=NONE;
+IMAGE h5: IMAGE="fa-cog", ACTION=settings, STYLE="header", STRETCH=NONE;
+
+
+WEBCOMPONENT gb = formonly.gameboard, COMPONENTTYPE="fglsvgcanvas", STRETCH=BOTH, SCROLLBARS=NONE, HEIGHT=120 PIXELS;
+WEBCOMPONENT kb = formonly.keyboard, COMPONENTTYPE="fglsvgcanvas", PROPERTIES=(selection = "keyboard_click"),STRETCH=BOTH, SCROLLBARS=NONE, HEIGHT=60 PIXELS;

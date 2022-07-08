@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ANSI_X3.4-1968"?>
+<StyleList>
+  <Style name="Window">
+     <StyleAttribute name="windowType" value="normal" />
+     <StyleAttribute name="actionPanelPosition" value="chrome" />
+     <StyleAttribute name="ringMenuPosition" value="chrome" />
+     <StyleAttribute name="defaultTTFColor" value="black" />
+  </Style>
+  <Style name="Window.dialog">
+     <StyleAttribute name="windowType" value="modal" />
+     <StyleAttribute name="sizable" value="no" />
+     <StyleAttribute name="position" value="center" />
+     <StyleAttribute name="actionPanelPosition" value="bottom" />
+     <StyleAttribute name="ringMenuPosition" value="bottom" />
+     <StyleAttribute name="toolBarPosition" value="none" />
+  </Style>
+   <Style name="Label">
+     <StyleAttribute name="border" value="yes" />
+     <StyleAttribute name="backgroundColor" value="white" />
+     <StyleAttribute name="textColor" value="black" />
+     <StyleAttribute name="fontWeight" value="bold" />
+      <StyleAttribute name="fontSize" value="2em" />
+  </Style>
+
+     <Style name=".incorrect">
+     <StyleAttribute name="backgroundColor" value="#65696d" />
+     <StyleAttribute name="textColor" value="white" />
+  </Style>
+     <Style name=".close">
+     <StyleAttribute name="backgroundColor" value="#bda747" />
+     <StyleAttribute name="textColor" value="white" />
+  </Style>
+    <Style name=".correct">
+     <StyleAttribute name="backgroundColor" value="#599d51" />
+     <StyleAttribute name="textColor" value="white" />
+  </Style>
+
+  <Style name="Label.header">
+     <StyleAttribute name="fontFamily" value="Clear Sans" />
+      <!-- StyleAttribute name="fontFamily" value="Clear Sans, Helvetica Neue, Arial" - -->
+     <StyleAttribute name="fontSize" value="2em" />
+     <StyleAttribute name="fontWeight" value="bold" />
+     <StyleAttribute name="backgroundColor" value="transparent" />
+  </Style>
+
+   <Style name="Button">
+     <StyleAttribute name="border" value="yes" />
+     <StyleAttribute name="backgroundColor" value="#c9c9c2" />
+     <StyleAttribute name="textColor" value="black" />
+     <StyleAttribute name="fontWeight" value="bold" />
+  </Style>
+  <Style name="Image.spring">
+     <StyleAttribute name="border" value="no" />
+  </Style>
+   <Style name="Image.header">
+     <StyleAttribute name="alignment" value="center" />
+     <StyleAttribute name="border" value="no" />
+  </Style>
+</StyleList>
