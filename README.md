@@ -1,4 +1,7 @@
 # app_wordle
+
+:warning: WORK IN PROGRESS
+
 Demostration of Wordle written in Genero
 
 Consists of two applications
