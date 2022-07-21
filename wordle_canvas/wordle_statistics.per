@@ -1,0 +1,72 @@
+LAYOUT (TEXT="STATISTICS")
+VBOX
+GRID
+{
+[ :f01     |f02     |f03      |f04     : ]
+  [l01     |l02     |l03a     |l04a    ]
+                    [l03b     |l04b    ]
+[s01                                     ]
+}
+END
+GROUP (TEXT="GUESS DISTRIBUTION")
+GRID
+{
+[gd]
+}
+END
+END
+HBOX
+GROUP
+GRID
+{
+[lnw     ]
+[nw      ]
+[s02     ]
+}
+END
+END
+GRID
+{
+[s3l|sh      |s3r]
+    [s03     ]
+}
+END
+END
+GRID
+{
+[ad01]
+}
+END
+END
+END
+ATTRIBUTES
+
+LABEL f01 = formonly.played, JUSTIFY=CENTER, STRETCH=X;
+LABEL l01 : TEXT="Played", JUSTIFY=CENTER;
+
+LABEL f02 = formonly.winperc, JUSTIFY=CENTER, STRETCH=X;
+LABEL l02 : TEXT="Win %", JUSTIFY=CENTER;
+
+LABEL f03 = formonly.streak, JUSTIFY=CENTER, STRETCH=X;
+LABEL l03a : TEXT="Current", JUSTIFY=CENTER;
+LABEL l03b : TEXT="Streak", JUSTIFY=CENTER;
+
+LABEL f04 = formonly.max, JUSTIFY=CENTER, STRETCH=X;
+LABEL l04a : TEXT="Max", JUSTIFY=CENTER;
+LABEL l04b : TEXT="Streak", JUSTIFY=CENTER;
+
+
+WEBCOMPONENT gd = formonly.guess_distribution, COMPONENTTYPE="fglsvgcanvas", STRETCH=BOTH;
+
+LABEL lnw: TEXT="NEXT WORDLE", JUSTIFY=CENTER;
+LABEL nw = formonly.next_wordle, JUSTIFY=CENTER;
+BUTTON sh : share, TEXT="SHARE",IMAGE="fa-share-alt";
+
+IMAGE ad01 :ad, IMAGE="https://4js.com/wp-content/uploads/2015/05/logo_4Js_2014_CMYK_seul-300x92.png", ACTION=gotofourjs;
+
+IMAGE s01 = formonly.spring, STYLE="spring", STRETCH=X;
+
+IMAGE s02 = formonly.spring2, STYLE="spring", STRETCH=X;
+IMAGE s03 = formonly.spring3, STYLE="spring", STRETCH=X;
+IMAGE s3l = formonly.spring3l, STYLE="spring", STRETCH=Y;
+IMAGE s3r = formonly.spring3r, STYLE="spring", STRETCH=Y;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Project defaultApplication="-1429969501" gstVersion="40100" version="3.4">
+<Project defaultApplication="-251185859" gstVersion="40100" version="3.4">
   <Settings>
     <DynamicProperties version="4">
       <DynamicProperty description="Accent color (Android 5.0 and later)" initialValue="#9575CD" isDefaultInherited="false" isHidden="false" label="Accent color" name="gma-accent-color" readOnly="false" type="COLOR"/>
@@ -79,12 +79,24 @@
       <Configuration id="-251185859" label="Application"/>
       <File filePath="wordle_canvas/wordle_canvas.4gl"/>
       <File filePath="wordle_canvas/wordle_canvas.per"/>
+      <File filePath="wordle_canvas/wordle_settings.4gl"/>
+      <File filePath="wordle_canvas/wordle_settings.per"/>
+      <File filePath="wordle_canvas/wordle_statistics.4gl"/>
+      <File filePath="wordle_canvas/wordle_statistics.per"/>
     </Application>
   </Group>
-  <Group id="-2104981061" label="03_resources" language="Genero">
+  <Group id="1000907648" label="03_wordle_webservice" language="Genero">
+    <Application binaryName="wordle_webservice" environment="value:FGLAPPSERVER=8091" id="-1553165526" label="wordle_webservice">
+      <Configuration id="1067162543" label="Configuration"/>
+      <File filePath="wordle_canvas/wordle_webservice.4gl"/>
+      <File filePath="wordle_canvas/wordle_webservice_main.4gl"/>
+    </Application>
+  </Group>
+  <Group id="-2104981061" label="99_resources" language="Genero">
     <Library binaryName="wordle_lib" id="-947686384" label="wordle_lib">
       <File filePath="wordle_lib/wordle.4st"/>
       <File filePath="wordle_lib/wordle.txt"/>
+      <File filePath="wordle_canvas/wordle_db.4gl"/>
     </Library>
   </Group>
 </Project>

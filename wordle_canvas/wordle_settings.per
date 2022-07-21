@@ -1,0 +1,62 @@
+LAYOUT (TEXT="Settings")
+HBOX (ORIENTATION@SMALL=VERTICAL, ORIENTATION@MEDIUM=VERTICAL)
+GROUP (TEXT="Standard")
+GRID
+{
+[l01a                ][f01]
+[l01b                ] 
+---------------------------
+[l02a                ][f02]
+---------------------------
+[l03a                ][f03]
+[l03b                ] 
+---------------------------
+[l04a                ][f04]
+---------------------------
+[l05a                ][f05]
+---------------------------
+[l06a                ][f06]
+}
+END
+END
+GROUP (TEXT="Genero Extensions")
+GRID
+{
+[l11a                ][f11]
+[l11b                ]
+---------------------------
+[l12a                ][f12]
+[l12b                ]
+}
+END
+END
+END
+ATTRIBUTES
+LABEL l01a: TEXT="Hard Mode";
+LABEL l01b: TEXT="Any revelaled hints must be used in subsequent guesses", STYLE="comment";
+
+LABEL l02a: TEXT="Dark Theme";
+
+LABEL l03a: TEXT="High Contrast Mode";
+LABEL l03b: TEXT="For improved color vision", STYLE="comment";
+
+LABEL l04a: TEXT="Feedback";
+LABEL l05a: TEXT="Community";
+LABEL l06a: TEXT="Questions";
+
+CHECKBOX f01 = formonly.hard_mode, STYLE="toggle";
+CHECKBOX f02 = formonly.dark_theme, STYLE="toggle";
+CHECKBOX f03 = formonly.high_contrast_mode, STYLE="toggle";
+
+BUTTON f04 : feedback, STYLE="link", TEXT="Email";
+BUTTON f05 : community, STYLE="link", TEXT="Forums";
+BUTTON f06 : questions, STYLE="link", TEXT="Github";
+
+LABEL l11a: TEXT="Random Words";
+LABEL l11b: TEXT="Word is random, rather than todays Wordle word", STYLE="comment";
+
+LABEL l12a: TEXT="Full Dictionary";
+LABEL l12b: TEXT="Random Word is from full dicitonary, rather than from Wordle list", STYLE="comment";
+
+CHECKBOX f11 = formonly.random, STYLE="toggle";
+CHECKBOX f12 = formonly.full_dictionary, STYLE="toggle";

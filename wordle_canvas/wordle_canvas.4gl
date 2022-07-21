@@ -1,5 +1,6 @@
--- Comments out here indicate Genero syntax
+-- Comments out here indicate Genero syntax, Hmmm beautify keeps moving comment back to column 1 rather than leaving on column 132
 IMPORT FGL fglsvgcanvas -- Import another 4gl module
+IMPORT FGL wordle_db
 
 CONSTANT WORD_LENGTH = 5 -- Constant
 CONSTANT GUESS_LIMIT = 6
@@ -7,8 +8,6 @@ CONSTANT WORDLE_GUESS_STATE_NEVERGUESSED = -1
 CONSTANT WORDLE_GUESS_STATE_INCORRECT = 0
 CONSTANT WORDLE_GUESS_STATE_CLOSE = 1
 CONSTANT WORDLE_GUESS_STATE_CORRECT = 2
-
-DEFINE m_solution_word_count, m_candidate_word_count INTEGER
 
 TYPE wordle_guess_state_type ARRAY[WORD_LENGTH] OF INTEGER -- TYPE
 TYPE wordle_word_type CHAR(WORD_LENGTH)
@@ -45,8 +44,8 @@ MAIN
     CALL draw_svg_keyboard()
 
     CONNECT TO ":memory:+driver='dbmsqt'" -- Connect to different database, in this case an inmemory SQLite database
-    CALL db_init()
-    CALL db_populate()
+    CALL wordle_db.db_init()
+    CALL wordle_db.db_populate()
 
     CALL play()
 END MAIN
@@ -143,6 +142,12 @@ DEFINE nl om.NodeList
                 WHEN id MATCHES "[A-Z]"
                     CALL enter_letter(upshift(id), wordle)
             END CASE
+
+        ON ACTION statistics
+            CALL do_statistics()
+
+        ON ACTION settings
+            CALL do_settings()
             
         ON ACTION close
             EXIT PROGRAM
@@ -290,56 +295,6 @@ FUNCTION game_fail(word STRING)
     CALL FGL_WINMESSAGE("Info", word, "stop")
 END FUNCTION
 
-FUNCTION db_init()
-
-    CREATE TABLE word_list(idx INTEGER, word CHAR(5), candidate BOOLEAN)
-
-    CREATE UNIQUE INDEX ix_word_list_1 ON word_list(idx)
-    CREATE UNIQUE INDEX ix_word_list_2 ON word_list(word)
-END FUNCTION
-
-FUNCTION db_populate()
-    DEFINE l_solution_list, l_candidate_list STRING
-    DEFINE l_word CHAR(5)
-    DEFINE l_quoted_word STRING
-
-    DEFINE l_index INTEGER
-
-    VAR ch = base.Channel.create() -- base.Channel type to work with files, pipes
-    CALL ch.openFile("../wordle_lib/wordle.txt", "r") -- open file for reading
-
-    -- Read two lines of this file
-    -- First line contains list of possible solutions
-    -- Second line contains list of valid guesses
-    LET l_solution_list = ch.readLine() -- read a line
-    LET l_candidate_list = ch.readLine()
-    CALL ch.close()
-
-    LET l_index = 0
-    -- Parse the list of solution words
-    -- Use stringTokenizer to split by ,
-    -- Remove quotes
-    VAR tok = base.StringTokenizer.create(l_solution_list, ",") -- String tokenizer, to iterate through delimited string
-    WHILE tok.hasMoreTokens() -- are there more tokens
-        LET l_quoted_word = tok.nextToken() -- get the next token
-        LET l_word = upshift(l_quoted_word.subString(2, 6)) -- methods on datatypes
-
-        LET l_index = l_index + 1
-        INSERT INTO word_list VALUES(l_index, l_word, TRUE)
-    END WHILE
-    LET m_solution_word_count = l_index
-
-    -- Parse the list of solution words
-    LET tok = base.StringTokenizer.create(l_candidate_list, ",")
-    WHILE tok.hasMoreTokens()
-        LET l_quoted_word = tok.nextToken()
-        LET l_word = upshift(l_quoted_word.subString(2, 6))
-
-        LET l_index = l_index + 1
-        INSERT INTO word_list VALUES(l_index, l_word, FALSE)
-    END WHILE
-    LET m_candidate_word_count = l_index - m_solution_word_count
-END FUNCTION
 
 FUNCTION draw_svg_gameboard()
 DEFINE row, col INTEGER

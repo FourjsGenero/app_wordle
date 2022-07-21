@@ -14,7 +14,7 @@
      <StyleAttribute name="ringMenuPosition" value="bottom" />
      <StyleAttribute name="toolBarPosition" value="none" />
   </Style>
-   <Style name="Label">
+   <Style name="Label.gamepiece">
      <StyleAttribute name="border" value="yes" />
      <StyleAttribute name="backgroundColor" value="white" />
      <StyleAttribute name="textColor" value="black" />
@@ -43,7 +43,7 @@
      <StyleAttribute name="backgroundColor" value="transparent" />
   </Style>
 
-   <Style name="Button">
+   <Style name="Button.keyboard">
      <StyleAttribute name="border" value="yes" />
      <StyleAttribute name="backgroundColor" value="#c9c9c2" />
      <StyleAttribute name="textColor" value="black" />
@@ -55,5 +55,16 @@
    <Style name="Image.header">
      <StyleAttribute name="alignment" value="center" />
      <StyleAttribute name="border" value="no" />
+  </Style>
+
+    <Style name="Button.link">
+     <StyleAttribute name="buttonType" value="link" />
+  </Style>
+  <Style name="CheckBox.toggle">
+     <StyleAttribute name="customWidget" value="toggleButton" />
+  </Style>
+   <Style name="Label.comment">
+     <StyleAttribute name="fontWeight" value="dim" />
+     <StyleAttribute name="fontSize" value="0.8em" />
   </Style>
 </StyleList>
